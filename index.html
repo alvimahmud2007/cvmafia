@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CvMafia | Resume Builder</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Playfair+Display:wght@700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <header class="topbar" aria-label="Main navigation">
+      <a class="brand" href="#home" data-route="home" aria-label="CvMafia home">
+        <span class="brand-mark">CM</span>
+        <span>CvMafia</span>
+      </a>
+      <nav class="nav-actions" aria-label="Page shortcuts">
+        <button class="ghost-button" type="button" data-route="upload">Upload</button>
+        <button class="primary-button compact" type="button" data-route="builder">Create CV</button>
+      </nav>
+    </header>
+
+    <main>
+      <section class="screen landing-screen active" id="home" aria-labelledby="landing-title">
+        <div class="landing-copy">
+          <p class="eyebrow">Resume studio for ambitious careers</p>
+          <h1 id="landing-title">CvMafia</h1>
+          <p class="landing-subtitle">
+            Build a clean, professional CV in minutes, preview multiple premium layouts, and download the one that fits your next opportunity.
+          </p>
+          <div class="center-actions" aria-label="Start options">
+            <button class="primary-button large" type="button" data-route="builder">Create your Resume</button>
+            <button class="secondary-button large" type="button" data-route="upload">Upload your Resume</button>
+          </div>
+        </div>
+
+        <div class="showcase" aria-label="Resume design preview">
+          <img src="assets/resume-showcase.svg" alt="Three elegant resume layout previews" />
+        </div>
+      </section>
+
+      <section class="screen upload-screen" id="upload" aria-labelledby="upload-title">
+        <div class="section-heading">
+          <p class="eyebrow">Already have a resume?</p>
+          <h2 id="upload-title">Upload Your Resume</h2>
+          <p>
+            Keep your existing file close while you rebuild it in CvMafia. Supported file names are shown instantly so you can continue without guessing.
+          </p>
+        </div>
+
+        <div class="upload-panel">
+          <label class="upload-dropzone" for="resumeUpload">
+            <span class="upload-icon" aria-hidden="true">↑</span>
+            <span class="upload-title">Choose your resume file</span>
+            <span class="upload-help">PDF, DOC, DOCX, or image files</span>
+            <input id="resumeUpload" type="file" accept=".pdf,.doc,.docx,.png,.jpg,.jpeg" />
+          </label>
+          <div class="uploaded-file" id="uploadedFile" aria-live="polite">No file selected yet.</div>
+          <button class="primary-button" type="button" data-route="builder">Rebuild in CvMafia</button>
+        </div>
+      </section>
+
+      <section class="screen builder-screen" id="builder" aria-labelledby="builder-title">
+        <div class="section-heading tight">
+          <p class="eyebrow">Step 1 of 2</p>
+          <h2 id="builder-title">Create Your Resume</h2>
+          <p>Fill in your details once. CvMafia will turn them into several polished CV designs on the next page.</p>
+        </div>
+
+        <form class="resume-form" id="resumeForm">
+          <section class="form-section" aria-labelledby="personal-title">
+            <div class="form-section-title">
+              <h3 id="personal-title">Personal Details</h3>
+              <p>Your profile photo and contact essentials.</p>
+            </div>
+
+            <div class="photo-row">
+              <label class="photo-upload" for="photoInput">
+                <img id="photoPreview" alt="" />
+                <span id="photoPlaceholder">Upload Photo</span>
+                <input id="photoInput" name="photo" type="file" accept="image/*" />
+              </label>
+
+              <div class="form-grid">
+                <label>
+                  Full Name
+                  <input name="fullName" type="text" placeholder="Ariana Rahman" required />
+                </label>
+                <label>
+                  Birth Year
+                  <input name="birthYear" type="number" min="1950" max="2026" placeholder="2000" />
+                </label>
+                <label>
+                  Email
+                  <input name="email" type="email" placeholder="you@example.com" required />
+                </label>
+                <label>
+                  Phone
+                  <input name="phone" type="tel" placeholder="+880 1XXX XXXXXX" />
+                </label>
+                <label>
+                  Location
+                  <input name="location" type="text" placeholder="Dhaka, Bangladesh" />
+                </label>
+                <label>
+                  Portfolio / LinkedIn
+                  <input name="portfolio" type="url" placeholder="https://linkedin.com/in/you" />
+                </label>
+              </div>
+            </div>
+
+            <label>
+              Professional Summary
+              <textarea
+                name="summary"
+                rows="4"
+                placeholder="Write 2-3 lines about your strongest skills, career goal, and the value you bring."
+              ></textarea>
+            </label>
+          </section>
+
+          <section class="form-section" aria-labelledby="education-title">
+            <div class="form-section-title">
+              <h3 id="education-title">Education</h3>
+              <p>SSC, HSC, Bachelor, and Masters details.</p>
+            </div>
+
+            <div class="education-grid">
+              <fieldset>
+                <legend>SSC</legend>
+                <input name="sscInstitution" type="text" placeholder="Institution" />
+                <input name="sscYear" type="text" placeholder="Passing year" />
+                <input name="sscResult" type="text" placeholder="Result / GPA" />
+              </fieldset>
+              <fieldset>
+                <legend>HSC</legend>
+                <input name="hscInstitution" type="text" placeholder="Institution" />
+                <input name="hscYear" type="text" placeholder="Passing year" />
+                <input name="hscResult" type="text" placeholder="Result / GPA" />
+              </fieldset>
+              <fieldset>
+                <legend>Bachelor</legend>
+                <input name="bachelorInstitution" type="text" placeholder="University" />
+                <input name="bachelorYear" type="text" placeholder="Graduation year" />
+                <input name="bachelorResult" type="text" placeholder="Result / CGPA" />
+              </fieldset>
+              <fieldset>
+                <legend>Masters</legend>
+                <input name="mastersInstitution" type="text" placeholder="University" />
+                <input name="mastersYear" type="text" placeholder="Graduation year" />
+                <input name="mastersResult" type="text" placeholder="Result / CGPA" />
+              </fieldset>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="history-title">
+            <div class="form-section-title with-action">
+              <div>
+                <h3 id="history-title">Project or Job History</h3>
+                <p>Add work experience, internships, freelance work, or important projects.</p>
+              </div>
+              <button class="icon-button" type="button" id="addHistory" aria-label="Add history item" title="Add history item">+</button>
+            </div>
+
+            <div class="dynamic-list" id="historyList"></div>
+          </section>
+
+          <section class="form-section" aria-labelledby="skills-title">
+            <div class="form-section-title">
+              <h3 id="skills-title">Skills, Languages, and More</h3>
+              <p>Use commas to separate each item.</p>
+            </div>
+
+            <div class="form-grid">
+              <label>
+                Skills
+                <input name="skills" type="text" placeholder="Excel, HTML, Communication, Leadership" />
+              </label>
+              <label>
+                Languages
+                <input name="languages" type="text" placeholder="Bangla, English, Hindi" />
+              </label>
+              <label>
+                Hobbies
+                <input name="hobbies" type="text" placeholder="Reading, Photography, Football" />
+              </label>
+              <label>
+                Certifications
+                <input name="certifications" type="text" placeholder="Digital Marketing, IELTS, Web Design" />
+              </label>
+            </div>
+          </section>
+
+          <section class="form-section" aria-labelledby="reference-title">
+            <div class="form-section-title">
+              <h3 id="reference-title">Reference</h3>
+              <p>Optional, but useful for formal CVs.</p>
+            </div>
+            <div class="form-grid">
+              <label>
+                Reference Name
+                <input name="referenceName" type="text" placeholder="Mr. / Ms. Name" />
+              </label>
+              <label>
+                Reference Contact
+                <input name="referenceContact" type="text" placeholder="Email or phone" />
+              </label>
+            </div>
+          </section>
+
+          <div class="generate-bar">
+            <button class="primary-button large" type="submit">Generate C.V</button>
+          </div>
+        </form>
+      </section>
+
+      <section class="screen templates-screen" id="templates" aria-labelledby="templates-title">
+        <div class="section-heading tight">
+          <p class="eyebrow">Step 2 of 2</p>
+          <h2 id="templates-title">Choose Your CV Design</h2>
+          <p>Select a layout, preview your information, then download it to your device.</p>
+        </div>
+
+        <div class="template-toolbar" aria-label="Template actions">
+          <button class="secondary-button" type="button" data-route="builder">Edit Details</button>
+          <button class="primary-button" type="button" id="printCv">Print / Save PDF</button>
+        </div>
+
+        <div class="template-grid" id="templateGrid"></div>
+      </section>
+    </main>
+
+    <template id="historyTemplate">
+      <article class="history-item">
+        <div class="history-topline">
+          <strong>History Item</strong>
+          <button class="icon-button remove-history" type="button" aria-label="Remove history item" title="Remove history item">×</button>
+        </div>
+        <div class="form-grid">
+          <label>
+            Role / Project Name
+            <input name="historyTitle" type="text" placeholder="Frontend Developer Intern" />
+          </label>
+          <label>
+            Company / Client
+            <input name="historyCompany" type="text" placeholder="Company or project owner" />
+          </label>
+          <label>
+            Duration
+            <input name="historyDuration" type="text" placeholder="Jan 2024 - Present" />
+          </label>
+          <label>
+            Location / Type
+            <input name="historyLocation" type="text" placeholder="Remote, Dhaka, Contract" />
+          </label>
+        </div>
+        <label>
+          Key Achievements
+          <textarea name="historyDescription" rows="3" placeholder="Mention responsibilities, results, tools used, or achievements."></textarea>
+        </label>
+      </article>
+    </template>
+
+    <script src="script.js"></script>
+  </body>
+</html>
